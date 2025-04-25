@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <h1>Expense Tracker</h1>
+    <div style="text-align: center;">
+        <a href="{% url 'add_expense' %}">➕ Add Expense</a>
+    </div>
+
+    <div class="chart-container">
+        <h2>Expense Chart</h2>
+        <canvas id="expenseChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        // Parsing the chart data passed from the view
+        const chartData = JSON.parse('{{ chart_data|escapejs }}');
+
+        const ctx = document.getElementById('expenseChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: 'Actual Expenses',
+                        data: chartData.actual_expenses,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Expected Expenses',
+                        data: chartData.expected_expenses,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+

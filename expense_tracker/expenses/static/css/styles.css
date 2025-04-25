@@ -1,0 +1,83 @@
+/* General Page Styles */
+body {
+    background-color: #2e2ecc;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    border-bottom: 3px solid #ccc;
+}
+
+/* Table Styling */
+.table {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 15px;
+}
+
+/* Chart Styling */
+canvas {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+/* Card for Expense Tracker */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Centering the Main Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Button Styling */
+.btn-add-expense {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-add-expense:hover {
+    background-color: #218838;
+}
+
+/* Customizing the Expense Chart */
+canvas {
+    max-width: 100%;
+}
